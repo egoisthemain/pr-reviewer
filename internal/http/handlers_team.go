@@ -27,7 +27,7 @@ func (s *Server) handleCreateTeam(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := s.TeamService.CreateTeam(r.Context(), team); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest) // потом поменяем под ErrorResponse
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
@@ -51,7 +51,7 @@ func (s *Server) handleGetTeam(w http.ResponseWriter, r *http.Request) {
 
 	team, err := s.TeamService.GetTeam(r.Context(), teamName)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusNotFound) // потом заменим на нормальный формат
+		http.Error(w, err.Error(), http.StatusNotFound)
 		return
 	}
 
